@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Traits\ImageStorage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
 class AttendanceController extends Controller
