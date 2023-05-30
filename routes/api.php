@@ -28,6 +28,6 @@ Route::group(['prefix' => 'auth'], function () {
         ->middleware('auth:sanctum');
 });
 
-Route::group(['middlewar' => 'auth::sanctum'], function(){
+Route::group(['middlewar' => 'auth::sanctum'], function() {
     Route::post('attendance', 'Api\AttendanceController@store');
 });
