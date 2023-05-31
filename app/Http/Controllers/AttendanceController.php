@@ -1,7 +1,8 @@
 <?php
-
+namespace App\Charts;
 namespace App\Http\Controllers;
 
+use ConsoleTVs\Charts\Classes\Chartjs\Chart;
 use App\Attendance;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -44,5 +45,18 @@ class AttendanceController extends Controller
     {
         $attendance = Attendance::with(['user', 'detail'])->findOrFail($id);
         return view('pages.attendance.show', compact('attendance'));
+    }
+}
+
+class AttendanceChart extends Chart
+{
+    /**
+     * Initializes the chart.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
     }
 }

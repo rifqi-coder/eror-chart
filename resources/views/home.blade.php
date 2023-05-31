@@ -1,7 +1,7 @@
 @extends('layouts.app')
-
+ 
 @section('content')
-
+ 
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -19,7 +19,7 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
-
+ 
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -27,13 +27,13 @@
         <div class="row">
             <!-- Left col -->
             <section class="col-lg-12">
-
+ 
                 @if (session('status'))
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
                 </div>
                 @endif
-
+ 
                 <!-- Attendance Chart -->
                 <div class="card">
                     <div class="card-header">
@@ -44,7 +44,9 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <!-- <div id="chart" style="height: 300px"></div> -->
+                        <div id="chart" style="height: 300px">
+                            {!! $chart->container() !!}
+                        </div>
                     </div>
                 </div>
                 <!-- /.card -->
@@ -56,17 +58,7 @@
 </section>
 <!-- /.content -->
 @endsection
-
+ 
 @push('scripts')
-<!-- <script>
-    const chart = new Chartisan({
-        el: '#chart',
-        url: "@chart('attendance_chart')",
-        hooks: new ChartisanHooks()
-            .colors(['#3490dc', '#e3342f', '#38c172'])
-            .legend({ position: 'bottom' })
-            .datasets(['bar', 'bar', { type: 'line', fill: false }])
-            .tooltip()
-    });
-</script> -->
+    {!! $chart->script() !!}
 @endpush

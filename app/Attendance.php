@@ -1,17 +1,21 @@
 <?php
 
 namespace App;
+
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Attendance extends Model
 {
     protected $guarded = [];
 
-    
+    public function scopeCountAttendance($query, $status)
+    {
+        return $query->whereDate('created_at', Carbon::today())
+            ->where('status', $status)->count();
+    }
 
-    public function detail ()
+    public function detail()
     {
         return $this->hasMany(AttendanceDetail::class);
     }
