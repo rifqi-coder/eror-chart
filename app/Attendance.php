@@ -3,6 +3,7 @@
 namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Attendance extends Model
 {
@@ -15,4 +16,8 @@ class Attendance extends Model
         return $this->hasMany(AttendanceDetail::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
